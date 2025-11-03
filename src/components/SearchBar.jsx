@@ -1,52 +1,35 @@
-import { Search, Loader, Film, Calendar, Star } from "lucide-react";
+import { Search, Loader, Film, Home } from "lucide-react";
 
 export default function SearchBar({
   searchTerm,
   setSearchTerm,
   onSearch,
   genres = ["All"],
-  years = ["All"],
   genreFilter,
   setGenreFilter,
-  yearFilter,
-  setYearFilter,
-  ratingFilter,
-  setRatingFilter,
   loading,
+  onHome,
 }) {
   return (
-    <div className="flex items-center gap-2 flex-wrap justify-end w-full">
-      {/* 🔍 Search input */}
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && onSearch()}
-        className="p-2 rounded-md text-black border w-48 md:w-56"
-      />
-
+    <div className="flex items-center gap-4 flex-wrap justify-end w-full">
+      {/* 🏠 Home Button (first after logo) */}
       <button
-        onClick={onSearch}
-        disabled={loading}
-        className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md transition flex items-center gap-2"
+        onClick={onHome}
+        className="flex items-center gap-2 bg-purple-700 hover:bg-purple-800 text-white px-5 py-2 rounded-lg transition"
       >
-        {loading ? (
-          <span className="animate-pulse"><Loader size={18}/></span>
-        ) : (
-          <>
-            <Search size={18} />
-          </>
-        )}
+        <Home size={18} /> Home
       </button>
 
-      {/* 🎭 Genre Filter */}
+      {/* 🎭 Genre Dropdown */}
       <div className="relative flex items-center">
-        <Film size={18} className="absolute left-2 text-white-500 pointer-events-none" />
+        <Film
+          size={18}
+          className="absolute left-3 text-gray-400 pointer-events-none"
+        />
         <select
           value={genreFilter}
           onChange={(e) => setGenreFilter(e.target.value)}
-          className="p-2 pl-8 border rounded-md text-black appearance-none"
+          className="p-2 pl-9 pr-4 rounded-lg text-black bg-white/90 focus:outline-none focus:ring-2 focus:ring-purple-500"
         >
           {genres.map((g) => (
             <option key={g} value={g}>
@@ -56,39 +39,29 @@ export default function SearchBar({
         </select>
       </div>
 
-      {/* 📅 Year Filter */}
-      <div className="relative flex items-center">
-        <Calendar size={18} className="absolute left-2 text-red-500 pointer-events-none" />
-        <select
-          value={yearFilter}
-          onChange={(e) => setYearFilter(e.target.value)}
-          className="p-2 pl-8 border rounded-md text-black appearance-none"
-        >
-          {years.map((y) => (
-            <option key={y} value={y}>
-              {y}
-            </option>
-          ))}
-        </select>
-      </div>
+      {/* 🔍 Search input + button */}
+      <div className="flex items-center gap-1">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && onSearch()}
+          className="p-2 px-4 rounded-lg text-black bg-white/90 focus:outline-none focus:ring-2 focus:ring-purple-500 w-56 md:w-44"
+        />
 
-      {/* ⭐ Rating Filter */}
-      <div className="relative flex items-center">
-        <Star size={18} className="absolute left-2 text-yellow-300 pointer-events-none" />
-        <select
-          value={ratingFilter}
-          onChange={(e) => setRatingFilter(e.target.value)}
-          className="p-2 pl-8 border rounded-md text-black appearance-none"
+        <button
+          onClick={onSearch}
+          disabled={loading}
+          className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-lg transition flex items-center gap-1"
         >
-          <option value="All">All ratings</option>
-          <option value="9+">9+</option>
-          <option value="8+">8+</option>
-          <option value="7+">7+</option>
-          <option value="6+">6+</option>
-          <option value="below-6">Below 6</option>
-        </select>
+          {loading ? (
+            <Loader size={18} className="animate-spin" />
+          ) : (
+            <Search size={18} />
+          )}
+        </button>
       </div>
     </div>
   );
 }
-  
