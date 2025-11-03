@@ -105,7 +105,6 @@ function App() {
         }}
       />
 
-      {/* ✅ Full-width banner (clear and expanded) */}
       {searchTerm === "" && (
         <section className="relative w-screen  -mx-[50vw] overflow-hidden">
           {movies.length > 0 ? (

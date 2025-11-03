@@ -22,7 +22,7 @@ export default function BannerSlideshow({ movies }) {
           movie.Poster && movie.Poster !== "N/A"
             ? `url(${movie.Poster})`
             : "linear-gradient(90deg, #6b21a8, #9f7aea)",
-        backgroundPosition: "center center", // ✅ focus image in the middle
+        backgroundPosition: "center center", 
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         filter: "brightness(1.05) contrast(1.1) saturate(1.25)",
@@ -30,7 +30,7 @@ export default function BannerSlideshow({ movies }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* subtle bottom gradient */}
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
       {/* movie text */}
