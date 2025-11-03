@@ -105,19 +105,20 @@ function App() {
         }}
       />
 
-      <main className="w-full max-w-6xl px-4">
-        {searchTerm === "" && (
-          <section className="mt-6 rounded-xl overflow-hidden relative w-full">
-            {movies.length > 0 ? (
-              <BannerSlideshow movies={movies.slice(0, 5)} />
-            ) : (
-              <div className="w-full h-44 md:h-64 bg-gradient-to-r from-purple-700 to-purple-500 rounded-xl flex items-center justify-center text-white">
-                <h2 className="text-2xl font-bold">Movie Banner</h2>
-              </div>
-            )}
-          </section>
-        )}
+      {/* ✅ Full-width banner (clear and expanded) */}
+      {searchTerm === "" && (
+        <section className="relative w-screen  -mx-[50vw] overflow-hidden">
+          {movies.length > 0 ? (
+            <BannerSlideshow movies={movies.slice(0, 5)} />
+          ) : (
+            <div className="w-full h-44 md:h-64 bg-gradient-to-r from-purple-700 to-purple-500 flex items-center justify-center text-white">
+              <h2 className="text-2xl font-bold">Movie Banner</h2>
+            </div>
+          )}
+        </section>
+      )}
 
+      <main className="w-full max-w-6xl px-4">
         <section className="mt-6">
           <MovieList movies={filtered} loading={loading} allMovies={movies} />
         </section>
