@@ -108,7 +108,7 @@ function App() {
       {searchTerm === "" && (
         <section className="relative w-screen  -mx-[50vw] overflow-hidden">
           {movies.length > 0 ? (
-            <BannerSlideshow movies={movies.slice(0, 5)} />
+            <BannerSlideshow movies={movies} />
           ) : (
             <div className="w-full h-44 md:h-64 bg-gradient-to-r from-purple-700 to-purple-500 flex items-center justify-center text-white">
               <h2 className="text-2xl font-bold">Movie Banner</h2>

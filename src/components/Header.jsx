@@ -17,16 +17,15 @@ export default function Header({
   return (
     <header className="w-full bg-purple-900 text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-6xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3">
-        {/* 🎬 Logo Section */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
               <Clapperboard size={22} className="text-purple-950" />
             </div>
-            <h1 className="text-lg font-bold">Movies App</h1>
+            <h1 className="text-lg font-bold">Movie App</h1>
           </div>
 
-          {/* 📱 Mobile menu toggle */}
+          {/*menu toggle */}
           <button
             className="md:hidden text-white text-2xl"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -35,7 +34,7 @@ export default function Header({
           </button>
         </div>
 
-        {/* 💜 Search & Filters Section */}
+        {/*Search and filters*/}
         <div
           className={`transition-all duration-300 overflow-hidden w-full md:w-auto ${
             menuOpen
