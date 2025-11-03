@@ -2,8 +2,8 @@
   "short_name": "Movie",
   "name": "Movie Web App",
   "icons": [
-    { "src": "/movie.jpg", "sizes": "192x192", "type": "image/png" },
-    { "src": "/logo512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/movies.jpg", "sizes": "192x192", "type": "image/png" },
+    { "src": "/movie.jpg", "sizes": "512x512", "type": "image/png" }
   ],
   "start_url": "/",
   "display": "standalone",
